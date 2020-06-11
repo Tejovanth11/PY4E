@@ -1,14 +1,13 @@
+#use pycharm instead of atom 
+import urllib
 import json
+import urllib.request
+url = input("enter url:- ")
+u = urllib.request.urlopen(url)
+data = u.read()
+data = json.loads(data)
 
-data = '''
-[
-  *upload your data here*
-]'''
-
-info = json.loads(data)
-comments = len("comments")
-for item in range["comments:"]:
-	print (item["count"])
-	number = int(item["count"])
-	count = count + number
-print (count)
+total = 0
+for tags in data["comments"]:
+	total+=tags["count"]
+print(total)
